@@ -1,0 +1,18 @@
+import re
+
+def calculate(expression):
+    try:
+        expression = expression.replace('x', '*')
+        cleaned_expression = re.sub(r'[^\d+\-*/().]', '', expression)
+        result = eval(cleaned_expression)
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+
+def main():
+    expression = input("Enter an expression: ")
+    result = calculate(expression)
+    print("Result:", result)
+
+if __name__ == "_main_":
+    main()
